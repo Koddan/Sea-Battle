@@ -109,7 +109,7 @@ public class DoBattleServlet extends HttpServlet {
                 boolean flag = true;
                 SeaBattleBot bot = new SeaBattleBot(name);
                 String coords = req.getParameter("fire1");
-                System.out.println(coords);
+                System.out.println("fire1");
                 int x = Integer.parseInt(coords.split(" ")[0]);
                 int y = Integer.parseInt(coords.split(" ")[1]);
                 int answer = bot.botAnswer(x, y);

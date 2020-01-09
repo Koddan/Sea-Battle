@@ -320,6 +320,7 @@ public class SeaBattleBot {
                 botUser.get(botX).set(botY, 2);
             }
         }
+        //this.finishedShips();
         dataBase.update(name, userBot, userUser, botUser, botBot);
 
         return this.isWin();

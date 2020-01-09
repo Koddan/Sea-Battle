@@ -9,7 +9,7 @@
 
                 var btn = this;
                 var xml = new XMLHttpRequest();
-                xml.open('POST', '/BattleServlet', true);
+                xml.open('POST', '/DoBattleServlet', true);
                 xml.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
                 xml.onreadystatechange = function() {
@@ -28,6 +28,7 @@
                 }
 
                 var message = "fire1=" + i + " " + j;
+                alert(message);
                 xml.send(message);
 
             }
@@ -98,18 +99,6 @@
                 <%
                 String canFire = null;
 
-                if (request.getAttribute("canFire") != null) {
-                    canFire = (String) request.getAttribute("canFire");
-
-                    if (canFire.equals("yes")) {
-                        out.println("<a>Your turn</a>");
-                    }
-                    else {
-                        out.println("<a>Enemy turn</a>");
-                        out.println("<script> onload(); </script>");
-                    }
-                }
-
                 String endGame = (String) request.getAttribute("endGame");
 
                 if (endGame == null) {
@@ -123,7 +112,7 @@
                         out.println("<tr>");
                         out.println("<td>");
 
-                        out.println("<a>Your ships, " + (String) request.getAttribute("yourName") + "</a>");
+                        //out.println("<a>Your ships, " + (String) request.getAttribute("yourName") + "</a>");
                         out.println("<div class=\"frame\">");
                         out.println("<table width = 338px height = 334px border=\"0\" cellspacing=\"0\" id=\"table\">");
 
@@ -154,7 +143,7 @@
 
                         out.println("<td>");
 
-                        out.println("<a>" + (String) request.getAttribute("enemyName") + "'s ships</a>");
+                        //out.println("<a>" + (String) request.getAttribute("enemyName") + "'s ships</a>");
 
                         out.println("<div class=\"frame\">");
                         out.println("<table width = 338px height = 334px border=\"0\" cellspacing=\"0\" id=\"table\">");
@@ -176,14 +165,9 @@
                                     mod += "\"hit\"";
                                 }
 
-                                if (request.getAttribute("canFire") != null) {
-                                    if (canFire.equals("yes")) {
-                                        out.println("<td><button " + mod + " type=\"button\" name=\"fire\" value =\"" + i + " " + j + "\"  OnClick=\"a(" + i + ", " + j + ");\" >"+"</button></td>");
-                                    }
-                                    else {
-                                        out.println("<td><button " + mod + " type=\"button\" name=\"empty\" value =" + i + " " + j + ">" + "</button></td>");
-                                    }
-                                }
+
+                                out.println("<td><button " + mod + " type=\"button\" name=\"fire1\" value =\"" + i + " " + j + "\"  OnClick=\"a(" + i + ", " + j + ");\" >"+"</button></td>");
+
                             }
                             out.println("</tr>");
                         }
