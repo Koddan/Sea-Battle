@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+  <!-- add user servlet -->
+  <servlet>
+    <servlet-name>add</servlet-name>
+    <servlet-class>app.servlets.AddUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>add</servlet-name>
+    <url-pattern>/add</url-pattern>
+  </servlet-mapping>
+
+  <!-- LoginServlet servlet -->
+  <servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>app.servlets.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
+
+  <!-- MainMenuServlet servlet -->
+  <servlet>
+    <servlet-name>MainMenuServlet</servlet-name>
+    <servlet-class>app.servlets.MainMenuServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MainMenuServlet</servlet-name>
+    <url-pattern>/MainMenuServlet</url-pattern>
+  </servlet-mapping>
+
+  <!-- LogoutServlet servlet -->
+  <servlet>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>app.servlets.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/LogoutServlet</url-pattern>
+  </servlet-mapping>
+
+  <!-- BattleServlet servlet -->
+  <servlet>
+    <servlet-name>BattleServlet</servlet-name>
+    <servlet-class>app.servlets.BattleServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BattleServlet</servlet-name>
+    <url-pattern>/BattleServlet</url-pattern>
+  </servlet-mapping>
+
+  <!-- DoBattleServlet servlet -->
+  <servlet>
+    <servlet-name>DoBattleServlet</servlet-name>
+    <servlet-class>app.servlets.DoBattleServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoBattleServlet</servlet-name>
+    <url-pattern>/DoBattleServlet</url-pattern>
+  </servlet-mapping>
+
+  <!-- ProfileServlet servlet -->
+  <servlet>
+    <servlet-name>ProfileServlet</servlet-name>
+    <servlet-class>app.servlets.ProfileServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProfileServlet</servlet-name>
+    <url-pattern>/ProfileServlet</url-pattern>
+  </servlet-mapping>
+
+  <!-- startUserBattleServlet servlet -->
+  <servlet>
+    <servlet-name>startUserBattleServlet</servlet-name>
+    <servlet-class>app.servlets.startUserBattleServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>startUserBattleServlet</servlet-name>
+    <url-pattern>/startUserBattleServlet</url-pattern>
+  </servlet-mapping>
+
+</web-app>

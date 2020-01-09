@@ -1,0 +1,108 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80"%3E%3Cpath fill="%239C92AC" fill-opacity="0.4" d="M14 16H9v-2h5V9.87a4 4 0 1 1 2 0V14h5v2h-5v15.95A10 10 0 0 0 23.66 27l-3.46-2 8.2-2.2-2.9 5a12 12 0 0 1-21 0l-2.89-5 8.2 2.2-3.47 2A10 10 0 0 0 14 31.95V16zm40 40h-5v-2h5v-4.13a4 4 0 1 1 2 0V54h5v2h-5v15.95A10 10 0 0 0 63.66 67l-3.47-2 8.2-2.2-2.88 5a12 12 0 0 1-21.02 0l-2.88-5 8.2 2.2-3.47 2A10 10 0 0 0 54 71.95V56zm-39 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm40-40a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM15 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm40 40a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"%3E%3C/path%3E%3C/svg%3E');
+}
+.header{
+  text-align: center;
+  font-weight: bold;
+  font-size: 40pt;
+  text-decoration: underline;
+  letter-spacing: 5px;
+  color: #283593;
+}
+.frame {
+  height: 575px;
+  width: 250px;
+  background-size: cover;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20pt;
+}
+label{
+  font-weight: bold;
+  font-size: 15pt;
+  color: #37474F;
+}
+.find{
+  margin-left: 7%;
+  margin-top: 5pt;
+}
+.button{
+  background-color: transparent;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 15pt;
+  color: #37474F;
+  //background: rgba(255,255,255,0.5);
+  margin-left: 83%;
+  margin-top: 5pt;
+}
+ b button{
+  background-color: #B0BEC5;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 15pt;
+  color: #37474F;
+  margin-left: 10%;
+  margin-top: 5pt;
+  margin-bottom: 10pt;
+}
+.rectangle button{
+  border: none;
+  font-weight: bold;
+  font-size: 15pt;
+  margin-left: auto;
+  color: #37474F;
+}
+.rectangle {
+counter-reset: li; 
+list-style: none; 
+font: 14px "Trebuchet MS", "Lucida Sans";
+padding: 0;
+//text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+.rectangle a {
+position: relative;
+display: block;
+padding: .4em .4em .4em .8em;
+margin: .5em 0 .5em 2.5em;
+background: #D3D4DA;
+color: #E0F2F1;
+text-decoration: none;
+transition: all .3s ease-out;
+}
+.rectangle a:hover {background: #DCDDE1;}       
+.rectangle a:before {
+content: counter(li);
+counter-increment: li;
+position: absolute;
+left: -2.5em;
+top: 50%;
+margin-top: -1em;
+background: #283593;
+height: 2em;
+width: 2em;
+line-height: 2em;
+text-align: center;
+font-weight: bold;
+}
+.rectangle a:after {
+position: absolute;
+content: "";
+border: .5em solid transparent;
+left: -1em;
+top: 50%;
+margin-top: -.5em;
+transition: all .3s ease-out;
+}
+.rectangle a:hover:after {
+left: -.5em;
+border-left-color: #283593;
+}
+.rectangle li.hide {
+  display:none;
+}
