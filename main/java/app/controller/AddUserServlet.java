@@ -1,6 +1,6 @@
-package app.servlets;
+package app.controller;
 
-import app.controller.DataBaseInputOutput;
+import app.database.DataBaseInputOutput;
 
 import javax.servlet.*;
 import javax.servlet.http.*;

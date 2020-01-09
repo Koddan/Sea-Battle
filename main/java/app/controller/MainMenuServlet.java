@@ -1,9 +1,6 @@
-package app.servlets;
-
-import app.controller.DataBaseInputOutput;
+package app.controller;
 
 import java.io.*;
-import java.util.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 

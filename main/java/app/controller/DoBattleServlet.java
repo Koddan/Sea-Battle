@@ -1,7 +1,7 @@
-package app.servlets;
+package app.controller;
 
-import app.controller.DataBaseInputOutput;
-import app.entities.SeaBattleBot;
+import app.database.DataBaseInputOutput;
+import app.model.SeaBattleBot;
 
 import java.io.*;
 import java.util.*;

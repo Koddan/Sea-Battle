@@ -1,6 +1,6 @@
-package app.entities;
+package app.model;
 
-import app.controller.DataBaseInputOutput;
+import app.database.DataBaseInputOutput;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +16,7 @@ public class GameSession {
     List<List<Integer>> callingEnemy;
     List<List<Integer>> replyingSelf;
     List<List<Integer>> replyingEnemy;
+    boolean flag = false;
 
     public GameSession(String callingUserName, String replyingUserName) {
 
@@ -25,10 +26,162 @@ public class GameSession {
 
     }
 
+    public GameSession(boolean flag) {
+
+        this.flag = true;
+        this.callingSelf = new ArrayList<>();
+        this.replyingSelf = new ArrayList<>();
+        this.callingEnemy = new ArrayList<>();
+        this.replyingEnemy = new ArrayList<>();
+
+        for (int i = 0; i < 10; i++) {
+            replyingSelf.add(new ArrayList<>());
+            for (int j = 0; j < 10; j++) {
+                replyingSelf.get(i).add(0);
+            }
+        }
+
+        for (int i = 0; i < 10; i++) {
+            callingEnemy.add(new ArrayList<>());
+            for (int j = 0; j < 10; j++) {
+                callingEnemy.get(i).add(0);
+            }
+        }
+
+        for (int i = 0; i < 10; i++) {
+            replyingEnemy.add(new ArrayList<>());
+            for (int j = 0; j < 10; j++) {
+                replyingEnemy.get(i).add(0);
+            }
+        }
+
+        List<Integer> tmp0 = new ArrayList<>();
+        tmp0.add(0);
+        tmp0.add(0);
+        tmp0.add(0);
+        tmp0.add(0);
+        tmp0.add(0);
+        tmp0.add(0);
+        tmp0.add(0);
+        tmp0.add(0);
+        tmp0.add(0);
+        tmp0.add(0);
+        List<Integer> tmp1 = new ArrayList<>();
+        tmp1.add(0);
+        tmp1.add(1);
+        tmp1.add(1);
+        tmp1.add(1);
+        tmp1.add(1);
+        tmp1.add(0);
+        tmp1.add(0);
+        tmp1.add(1);
+        tmp1.add(0);
+        tmp1.add(0);
+        List<Integer> tmp2 = new ArrayList<>();
+        tmp2.add(0);
+        tmp2.add(0);
+        tmp2.add(0);
+        tmp2.add(0);
+        tmp2.add(0);
+        tmp2.add(0);
+        tmp2.add(0);
+        tmp2.add(0);
+        tmp2.add(0);
+        tmp2.add(0);
+        List<Integer> tmp3 = new ArrayList<>();
+        tmp3.add(0);
+        tmp3.add(0);
+        tmp3.add(0);
+        tmp3.add(0);
+        tmp3.add(1);
+        tmp3.add(1);
+        tmp3.add(0);
+        tmp3.add(0);
+        tmp3.add(1);
+        tmp3.add(0);
+        List<Integer> tmp4 = new ArrayList<>();
+        tmp4.add(0);
+        tmp4.add(0);
+        tmp4.add(1);
+        tmp4.add(0);
+        tmp4.add(0);
+        tmp4.add(0);
+        tmp4.add(0);
+        tmp4.add(0);
+        tmp4.add(0);
+        tmp4.add(0);
+        List<Integer> tmp5 = new ArrayList<>();
+        tmp5.add(0);
+        tmp5.add(0);
+        tmp5.add(0);
+        tmp5.add(0);
+        tmp5.add(1);
+        tmp5.add(0);
+        tmp5.add(0);
+        tmp5.add(1);
+        tmp5.add(0);
+        tmp5.add(0);
+        List<Integer> tmp6 = new ArrayList<>();
+        tmp6.add(0);
+        tmp6.add(1);
+        tmp6.add(1);
+        tmp6.add(0);
+        tmp6.add(0);
+        tmp6.add(0);
+        tmp6.add(0);
+        tmp6.add(1);
+        tmp6.add(0);
+        tmp6.add(0);
+        List<Integer> tmp7 = new ArrayList<>();
+        tmp7.add(0);
+        tmp7.add(0);
+        tmp7.add(0);
+        tmp7.add(0);
+        tmp7.add(0);
+        tmp7.add(0);
+        tmp7.add(0);
+        tmp7.add(1);
+        tmp7.add(0);
+        tmp7.add(0);
+        List<Integer> tmp8 = new ArrayList<>();
+        tmp8.add(0);
+        tmp8.add(0);
+        tmp8.add(0);
+        tmp8.add(0);
+        tmp8.add(0);
+        tmp8.add(0);
+        tmp8.add(0);
+        tmp8.add(0);
+        tmp8.add(0);
+        tmp8.add(0);
+        List<Integer> tmp9 = new ArrayList<>();
+        tmp9.add(0);
+        tmp9.add(1);
+        tmp9.add(1);
+        tmp9.add(1);
+        tmp9.add(0);
+        tmp9.add(0);
+        tmp9.add(1);
+        tmp9.add(1);
+        tmp9.add(0);
+        tmp9.add(0);
+        callingSelf.add(tmp0);
+        callingSelf.add(tmp1);
+        callingSelf.add(tmp2);
+        callingSelf.add(tmp3);
+        callingSelf.add(tmp4);
+        callingSelf.add(tmp5);
+        callingSelf.add(tmp6);
+        callingSelf.add(tmp7);
+        callingSelf.add(tmp8);
+        callingSelf.add(tmp9);
+
+    }
+
     public void callAUser () {
 
         this.dataBase.usersBattleInitiate(this.callingUserName, this.replyingUserName);
-        //this.dataBase.closeUsersBattle(this.callingUserName, this.replyingUserName);
+
         while (true) {
             try {
                 sleep(100);
@@ -45,10 +198,12 @@ public class GameSession {
 
     public int isWin() {
 
-        callingSelf = dataBase.getCallingSelf(this.callingUserName, this.replyingUserName);
-        callingEnemy = dataBase.getCallingEnemy(this.callingUserName, this.replyingUserName);
-        replyingSelf = dataBase.getReplyingSelf(this.callingUserName, this.replyingUserName);
-        replyingEnemy = dataBase.getReplyingEnemy(this.callingUserName, this.replyingUserName);
+        if (!this.flag) {
+            callingSelf = dataBase.getCallingSelf(this.callingUserName, this.replyingUserName);
+            callingEnemy = dataBase.getCallingEnemy(this.callingUserName, this.replyingUserName);
+            replyingSelf = dataBase.getReplyingSelf(this.callingUserName, this.replyingUserName);
+            replyingEnemy = dataBase.getReplyingEnemy(this.callingUserName, this.replyingUserName);
+        }
 
         int callingSelfSum = 0;
         int replyingSelfSum = 0;
@@ -124,14 +279,17 @@ public class GameSession {
 
     }
 
-    public void finishedShips() {
+    public String finishedShips() {
 
-        callingSelf = dataBase.getCallingSelf(this.callingUserName, this.replyingUserName);
-        callingEnemy = dataBase.getCallingEnemy(this.callingUserName, this.replyingUserName);
-        replyingSelf = dataBase.getReplyingSelf(this.callingUserName, this.replyingUserName);
-        replyingEnemy = dataBase.getReplyingEnemy(this.callingUserName, this.replyingUserName);
+        if (!this.flag) {
+            callingSelf = dataBase.getCallingSelf(this.callingUserName, this.replyingUserName);
+            callingEnemy = dataBase.getCallingEnemy(this.callingUserName, this.replyingUserName);
+            replyingSelf = dataBase.getReplyingSelf(this.callingUserName, this.replyingUserName);
+            replyingEnemy = dataBase.getReplyingEnemy(this.callingUserName, this.replyingUserName);
+        }
         List<List<List<Integer>>> allTables = new ArrayList<>();
         List<List<List<Integer>>> secondTables = new ArrayList<>();
+
         allTables.add(callingEnemy);
         allTables.add(replyingSelf);
         secondTables.add(replyingEnemy);
@@ -153,7 +311,7 @@ public class GameSession {
                                     String coords = (i + counter) + " " + j;
                                     tmpShips.add(coords);
                                     counter--;
-                                    if (j + counter < 0)
+                                    if (i + counter < 0)
                                         break;
                                 }
                             }
@@ -177,7 +335,7 @@ public class GameSession {
                                     String coords = (i + counter) + " " + j;
                                     tmpShips.add(coords);
                                     counter++;
-                                    if (j + counter > 9)
+                                    if (i + counter > 9)
                                         break;
                                 }
                             }
@@ -287,6 +445,8 @@ public class GameSession {
                                     String coords = (i + counter) + " " + j;
                                     tmpShips.add(coords);
                                     counter--;
+                                    if (i + counter < 0)
+                                        break;
                                 }
                             }
                         }
@@ -297,6 +457,8 @@ public class GameSession {
                                     String coords = i + " " + (j + counter);
                                     tmpShips.add(coords);
                                     counter++;
+                                    if (j + counter > 9)
+                                        break;
                                 }
                             }
                         }
@@ -307,6 +469,8 @@ public class GameSession {
                                     String coords = (i + counter) + " " + j;
                                     tmpShips.add(coords);
                                     counter++;
+                                    if (i + counter > 9)
+                                        break;
                                 }
                             }
                         }
@@ -317,6 +481,8 @@ public class GameSession {
                                     String coords = i + " " + (j + counter);
                                     tmpShips.add(coords);
                                     counter--;
+                                    if (j + counter < 0)
+                                        break;
                                 }
                             }
                         }
@@ -397,8 +563,24 @@ public class GameSession {
             }
         }
 
-        dataBase.updateUsersBattle(this.callingUserName, this.replyingUserName, allTables.get(0), secondTables.get(1), secondTables.get(0), allTables.get(1));
+        int replyingSelfCircleNumber = 0;
+        int callingSelfCircleNumber = 0;
+        for (int i = 0; i < callingSelf.size(); i++) {
+            for (int j = 0; j < callingSelf.get(i).size(); j++) {
+                if (callingSelf.get(i).get(j) == 2) {
+                    callingSelfCircleNumber++;
+                }
+                if (replyingSelf.get(i).get(j) == 2) {
+                    replyingSelfCircleNumber++;
+                }
+            }
+        }
+        String numbers = replyingSelfCircleNumber + " " + callingSelfCircleNumber;
 
+        if (!flag)
+            dataBase.updateUsersBattle(this.callingUserName, this.replyingUserName, allTables.get(0), secondTables.get(1), secondTables.get(0), allTables.get(1));
+
+        return numbers;
     }
 
 }

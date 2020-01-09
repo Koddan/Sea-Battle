@@ -11,7 +11,7 @@
   <!-- add user servlet -->
   <servlet>
     <servlet-name>add</servlet-name>
-    <servlet-class>app.servlets.AddUserServlet</servlet-class>
+    <servlet-class>app.controller.AddUserServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>add</servlet-name>
@@ -21,7 +21,7 @@
   <!-- LoginServlet servlet -->
   <servlet>
     <servlet-name>LoginServlet</servlet-name>
-    <servlet-class>app.servlets.LoginServlet</servlet-class>
+    <servlet-class>app.controller.LoginServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>LoginServlet</servlet-name>
@@ -31,7 +31,7 @@
   <!-- MainMenuServlet servlet -->
   <servlet>
     <servlet-name>MainMenuServlet</servlet-name>
-    <servlet-class>app.servlets.MainMenuServlet</servlet-class>
+    <servlet-class>app.controller.MainMenuServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>MainMenuServlet</servlet-name>
@@ -41,7 +41,7 @@
   <!-- LogoutServlet servlet -->
   <servlet>
     <servlet-name>LogoutServlet</servlet-name>
-    <servlet-class>app.servlets.LogoutServlet</servlet-class>
+    <servlet-class>app.controller.LogoutServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>LogoutServlet</servlet-name>
@@ -51,7 +51,7 @@
   <!-- BattleServlet servlet -->
   <servlet>
     <servlet-name>BattleServlet</servlet-name>
-    <servlet-class>app.servlets.BattleServlet</servlet-class>
+    <servlet-class>app.controller.BattleServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>BattleServlet</servlet-name>
@@ -61,7 +61,7 @@
   <!-- DoBattleServlet servlet -->
   <servlet>
     <servlet-name>DoBattleServlet</servlet-name>
-    <servlet-class>app.servlets.DoBattleServlet</servlet-class>
+    <servlet-class>app.controller.DoBattleServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>DoBattleServlet</servlet-name>
@@ -71,7 +71,7 @@
   <!-- ProfileServlet servlet -->
   <servlet>
     <servlet-name>ProfileServlet</servlet-name>
-    <servlet-class>app.servlets.ProfileServlet</servlet-class>
+    <servlet-class>app.controller.ProfileServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>ProfileServlet</servlet-name>
@@ -81,7 +81,7 @@
   <!-- startUserBattleServlet servlet -->
   <servlet>
     <servlet-name>startUserBattleServlet</servlet-name>
-    <servlet-class>app.servlets.startUserBattleServlet</servlet-class>
+    <servlet-class>app.controller.startUserBattleServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>startUserBattleServlet</servlet-name>

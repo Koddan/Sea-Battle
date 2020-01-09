@@ -1,12 +1,10 @@
-package app.servlets;
+package app.controller;
 
-import app.controller.DataBaseInputOutput;
-import app.entities.GameSession;
+import app.database.DataBaseInputOutput;
+import app.model.GameSession;
 
 import java.io.*;
-import java.sql.*;
 import java.util.*;
-import javax.faces.view.EditableValueHolderAttachedObjectTarget;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
